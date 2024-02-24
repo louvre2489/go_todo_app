@@ -9,6 +9,7 @@ import (
 	"github.com/louvre2489/go_todo_app/clock"
 	"github.com/louvre2489/go_todo_app/config"
 	"github.com/louvre2489/go_todo_app/handler"
+	"github.com/louvre2489/go_todo_app/service"
 	"github.com/louvre2489/go_todo_app/store"
 )
 
@@ -28,14 +29,15 @@ func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), erro
 
 	r := store.Repository{Clocker: clock.RealClocker{}}
 	at := &handler.AddTask{
-		DB:        db,
-		Repo:      &r,
+		Service:   &service.AddTask{DB: db, Repo: &r},
 		Validator: v,
 	}
 	mux.Post("/tasks", at.ServeHTTTP)
 	lt := &handler.ListTask{
-		DB:   db,
-		Repo: &r,
+		Service: &service.ListTask{
+			DB:   db,
+			Repo: &r,
+		},
 	}
 	mux.Get("/tasks", lt.ServeHTTTP)
 

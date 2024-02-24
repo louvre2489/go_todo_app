@@ -12,7 +12,15 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 )
 
-require github.com/DATA-DOG/go-sqlmock v1.5.2
+require (
+	github.com/DATA-DOG/go-sqlmock v1.5.2
+	github.com/matryer/moq v0.3.4
+)
+
+require (
+	golang.org/x/mod v0.15.0 // indirect
+	golang.org/x/tools v0.18.0 // indirect
+)
 
 require (
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
