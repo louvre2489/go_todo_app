@@ -12,7 +12,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 )
 
-require github.com/DATA-DOG/go-sqlmock v1.5.2 // indirect
+require github.com/DATA-DOG/go-sqlmock v1.5.2
 
 require (
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
